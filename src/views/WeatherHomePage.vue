@@ -3,17 +3,22 @@
     <h1>Weather API CC</h1>
 
     <search-bar @handleSearch="searchCities" />
+
+    <cities-list-item :city="city" />
   </div>
 </template>
 
 <script>
+import CitiesListItem from "../components/cities-list/CitiesListItem.vue";
 import SearchBar from "../components/common/SearchBar.vue";
 
 export default {
-  components: { SearchBar },
+  components: { SearchBar, CitiesListItem },
   name: "WeatherHomePage",
-  props: {
-    msg: String
+  computed: {
+    city() {
+      return this.$store.getters["cities/city"];
+    }
   },
   methods: {
     searchCities(term) {

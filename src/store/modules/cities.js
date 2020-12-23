@@ -4,7 +4,11 @@ const state = {
   city: {}
 };
 
-const getters = {};
+const getters = {
+  city(state) {
+    return state.city;
+  }
+};
 
 const mutations = {
   SET_CITY: (state, payload) => {
