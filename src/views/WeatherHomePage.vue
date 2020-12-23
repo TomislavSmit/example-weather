@@ -22,18 +22,7 @@
 
     <hr />
 
-    <template v-if="!!Object.keys(cities).length">
-      <cities-list-item
-        :city="city"
-        v-for="(city, index) in cities"
-        :key="index"
-      />
-    </template>
-    <template v-else>
-      <div class="cities-list">
-        No cities in list
-      </div>
-    </template>
+    <cities-list />
   </div>
 </template>
 
@@ -44,12 +33,13 @@
 </style>
 
 <script>
+import CitiesList from "../components/cities-list/CitiesList.vue";
 import CitiesListItem from "../components/cities-list/CitiesListItem.vue";
 import SearchBar from "../components/common/SearchBar.vue";
 import SpinnerLoader from "../components/common/SpinnerLoader.vue";
 
 export default {
-  components: { SearchBar, CitiesListItem, SpinnerLoader },
+  components: { SearchBar, CitiesListItem, SpinnerLoader, CitiesList },
   name: "WeatherHomePage",
   data() {
     return {
@@ -59,9 +49,6 @@ export default {
   computed: {
     city() {
       return this.$store.getters["cities/city"];
-    },
-    cities() {
-      return this.$store.getters["cities/cities"];
     }
   },
   methods: {
