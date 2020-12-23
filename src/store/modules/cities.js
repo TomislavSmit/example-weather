@@ -39,6 +39,7 @@ const actions = {
   },
   addCityToList({ commit }, city) {
     commit("ADD_CITY_TO_LIST", city);
+    commit("SET_CITY", {});
   }
 };
 
