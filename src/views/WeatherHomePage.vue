@@ -4,7 +4,9 @@
 
     <search-bar @handleSearch="searchCities" />
 
-    <cities-list-item :city="city" />
+    <template v-if="!!Object.keys(city).length">
+      <cities-list-item :city="city" @addCity="addCityToList" />
+    </template>
   </div>
 </template>
 
@@ -23,6 +25,9 @@ export default {
   methods: {
     searchCities(term) {
       this.$store.dispatch("cities/fetchCity", term);
+    },
+    addCityToList() {
+      this.$store.dispatch("cities/addCityToList", this.city);
     }
   }
 };

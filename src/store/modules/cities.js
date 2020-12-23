@@ -1,18 +1,25 @@
 import weatherApi from "../../api/weather-api";
 
 const state = {
-  city: {}
+  city: {},
+  cities: {}
 };
 
 const getters = {
   city(state) {
     return state.city;
+  },
+  cities(state) {
+    return state.cities;
   }
 };
 
 const mutations = {
   SET_CITY: (state, payload) => {
     state.city = payload;
+  },
+  ADD_CITY_TO_LIST: (state, payload) => {
+    state.cities = { ...state.cities, [payload.id]: payload };
   }
 };
 
@@ -29,6 +36,9 @@ const actions = {
     } catch (err) {
       return err;
     }
+  },
+  addCityToList({ commit }, city) {
+    commit("ADD_CITY_TO_LIST", city);
   }
 };
 
