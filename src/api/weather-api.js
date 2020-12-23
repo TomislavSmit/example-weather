@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const baseURL = "https://api.openweathermap.org/data/2.5/";
-const APPID = "8041567580af3b158a42e66ef367b44a";
+const APPID = process.env.VUE_APP_API_KEY;
 
 export default axios.create({
   baseURL,
