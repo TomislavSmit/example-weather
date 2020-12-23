@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>Weather API CC</h1>
 
-    <search-bar />
+    <search-bar @handleSearch="searchCities" />
   </div>
 </template>
 
@@ -14,6 +14,11 @@ export default {
   name: "WeatherHomePage",
   props: {
     msg: String
+  },
+  methods: {
+    searchCities(term) {
+      console.log(term);
+    }
   }
 };
 </script>
