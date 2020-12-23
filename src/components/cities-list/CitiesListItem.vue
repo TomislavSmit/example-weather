@@ -3,7 +3,7 @@
     <div class="item">{{ city.name }}, {{ city.sys.country }}</div>
     <div class="item">{{ tempInCelsius }}°C</div>
     <div class="item" v-if="shouldDisplayAddButton">
-      <button @click="handleAddCity()">Add</button>
+      <app-button text="Add" @click-button="handleAddCity()" />
     </div>
   </div>
 </template>
@@ -24,7 +24,9 @@
 
 <script>
 import calculateInCelsius from "../../utils/calculate-temperature";
+import AppButton from "../ui/AppButton.vue";
 export default {
+  components: { AppButton },
   name: "CitiesListItem",
   props: {
     city: {
