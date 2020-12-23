@@ -17,7 +17,7 @@ export default {
   },
   methods: {
     searchCities(term) {
-      console.log(term);
+      this.$store.dispatch("cities/fetchCity", term);
     }
   }
 };
