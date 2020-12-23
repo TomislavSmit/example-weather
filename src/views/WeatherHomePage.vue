@@ -5,7 +5,7 @@
     <search-bar @handleSearch="searchCities" />
 
     <template v-if="loading">
-      Loading...
+      <spinner-loader />
     </template>
     <template v-if="!!Object.keys(city).length">
       <cities-list-item
@@ -46,9 +46,10 @@
 <script>
 import CitiesListItem from "../components/cities-list/CitiesListItem.vue";
 import SearchBar from "../components/common/SearchBar.vue";
+import SpinnerLoader from "../components/common/SpinnerLoader.vue";
 
 export default {
-  components: { SearchBar, CitiesListItem },
+  components: { SearchBar, CitiesListItem, SpinnerLoader },
   name: "WeatherHomePage",
   data() {
     return {
